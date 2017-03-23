@@ -1,0 +1,39 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1 {
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+h4 {
+	display: block;
+}
+
+main {
+	margin-top: 40px;
+}
+
+.userlink {
+	cursor: pointer;
+}
+
+.container {
+	display: inline-block;
+	margin-left: 150px;
+}
+
+.btn {
+	font-size: 14px;
+	float: left;
+	cursor: pointer;
+}
+
+.tweet {
+	margin: 10px 0;
+}
