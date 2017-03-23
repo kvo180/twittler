@@ -6,14 +6,16 @@ function getTweets() {
   while(index >= 0){
     var tweet = streams.home[index];
     var $tweet = $('<div class="tweet"></div>');
+    var $user = $('<p class="user"></p>');
     var $userLink = $('<span class="userlink" id=' +index+ '>@' +tweet.user+ '</span>');
     var $message = $('<p class="message"></p>');
     var $timestamp = $('<p class="timestamp"></p>');
 
-    $message.text(': ' + tweet.message);
+    $message.text(tweet.message);
     $timestamp.text(formatDate(tweet.created_at));
 
-    $userLink.prependTo($message);
+    $userLink.appendTo($user);
+    $user.prependTo($tweet);
     $message.appendTo($tweet);
     $timestamp.appendTo($tweet);
     $tweet.appendTo($main);
@@ -29,12 +31,15 @@ function getTweetsForUser(username) {
 	while (index >= 0) {
 		var tweet = streams.users[username][index]
 		var $userTweet = $('<div class="tweet"></div>');
+		var $user = $('<p class="user"></p>');
 		var $message = $('<p class="message"></p>');
 		var $timestamp = $('<p class="timestamp"></p>');
 
-		$message.text('@' + username + ': ' + tweet.message);
+		$user.text('@' + username);
+		$message.text(tweet.message);
 		$timestamp.text(formatDate(tweet.created_at));
 
+		$user.prependTo($userTweet);
 		$message.appendTo($userTweet);
 		$timestamp.appendTo($userTweet);
 		$userTweet.appendTo($('main'));
